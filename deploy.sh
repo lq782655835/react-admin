@@ -12,6 +12,6 @@ git add -A
 git commit -m "$msg"
 echo 'local commited'
 
-# git push -f https://github.com/lq782655835/blogs.git master
-# echo 'remote commited'
+git push -f https://github.com/lq782655835/react-admin.git master
+echo 'remote commited'
 # cd -

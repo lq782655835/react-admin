@@ -3,6 +3,7 @@ import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import Header from './components/header'
 import App from './pages/home'
 import Demo from './pages/demo'
+import Hook from './pages/hook'
 
 // function componnet
 const RouterConfig = () => (
@@ -12,6 +13,7 @@ const RouterConfig = () => (
             <Switch>
                 <Route exact path="/" component={App} />
                 <Route path="/demo" component={Demo} />
+                <Route path="/hook" component={Hook} />
                 <Redirect to="/" />
             </Switch>
         </div>
