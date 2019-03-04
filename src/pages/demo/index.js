@@ -7,32 +7,27 @@ import Button from '../../components/button'
 
 class Demo extends Component {
     componentDidMount () {
-        console.log(this.props, 123)
+        console.log(this.props, 'demo didMount')
     }
 
-    btnClick() {
+    btnClick = () => {
         this.props.setDemoList([{name: 1231}])
     }
 
     render() {
         return (
             <div>
-                <div onClick={this.btnClick.bind(this)}>demo page</div>
-                <Button>this is button</Button>
+                <div>demo page</div>
+                <Button onClick={this.btnClick}>this is button</Button>
                 <ColorBox />
+                <ul>
+                    {
+                        this.props.list.map(item => (<li key={item.name}>{item.name}</li>))
+                    }
+                </ul>
             </div>
         )
     }
 }
 
-const mapStateToProps = (state) => {
-    return {list: state.demo.demoList}
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        setDemoList: list => dispatch(setDemoList(list))
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Demo)
+export default connect((state) => ({list: state.demo.demoList}), {setDemoList})(Demo)
