@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {setDemoList} from '../../store/demo/action'
+// import {setDemoList} from '../../store/demo/action'
 
 import ColorBox from '../../components/color-box'
 import Button from '../../components/button'
@@ -12,7 +12,12 @@ class Demo extends Component {
     }
 
     btnClick = () => {
-        this.props.setDemoList([{name: 1231}])
+        // this.props.setDemoList([{name: 1231}])
+        this.props.dispatch({type: 'setDemoList', list: [{name: 1231}]})
+
+        setTimeout(() => {
+            console.log(this.props.dispatch({type: 'setDemoList', list: [{name: 22222}]}), 111)
+        }, 1000);
     }
 
     render() {
@@ -31,4 +36,5 @@ class Demo extends Component {
     }
 }
 
-export default connect((state) => ({list: state.demo.demoList}), {setDemoList})(Demo)
+// export default connect((state) => ({list: state.demo.demoList}), {setDemoList})(Demo)
+export default connect((state) => ({list: state.demo.demoList}))(Demo)

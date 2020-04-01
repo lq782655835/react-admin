@@ -1,4 +1,4 @@
-export const setHomeList = list => ({
-    type: 'setHomeList',
+export const setList = list => ({
+    type: 'setList',
     list
 })

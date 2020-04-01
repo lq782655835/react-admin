@@ -14,7 +14,7 @@ class Button extends Component {
 
     handleClick = (e) => {
         const { onClick } = this.props
-        onClick && this.props.onClick(e)
+        onClick && onClick(e)
     }
 
     render() {

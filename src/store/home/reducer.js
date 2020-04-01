@@ -1,11 +1,11 @@
 let defaultState = {
-    homeList: []
+    list: []
 }
 
 export default (state = defaultState, action) => {
     switch (action.type) {
-        case 'setHomeList':
-            return { ...state, homeList: action.list }
+        case 'setList':
+            return { ...state, list: action.list }
         default:
             return state
     }
